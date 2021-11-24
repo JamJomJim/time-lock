@@ -7,10 +7,10 @@ import "./ERC20.sol";
 
 contract TimeLockedWallet {
 
-    address public creator;
-    address payable public  owner;
-    uint public unlockDate;
-    uint256 public createdAt;
+    address public creator; // creator of lock
+    address payable public  owner; // receiver of funds
+    uint public unlockDate; // amount in days untill unlock
+    uint256 public createdAt; // lock create date
 
     modifier onlyOwner {
         require(msg.sender == owner);
