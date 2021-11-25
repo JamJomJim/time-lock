@@ -1,5 +1,3 @@
-// work in progress
-
 pragma solidity ^0.8.4;
 
 import "./TimeLockedWallet.sol";
@@ -26,7 +24,7 @@ contract TimeLockedWalletFactory {
         TimeLockedWallet newTimeLockedWallet = new TimeLockedWallet(msg.sender, _owner, _unlockDate);
         
         // Add wallet to sender's wallets.
-        wallets[msg.sender].push(newTimeLockedWallet);
+        wallets[msg.sender].push(payable(newTimeLockedWallet));
 
         // If owner is the same as sender then add wallet to sender's wallets too.
         if(msg.sender != _owner){
@@ -34,14 +32,14 @@ contract TimeLockedWalletFactory {
         }
 
         // Send ether from this transaction to the created contract.
-        wallet.transfer(msg.value);
+        payable(wallet).transfer(msg.value);
 
         // Emit event.
-        Created(wallet, msg.sender, _owner, now, _unlockDate, msg.value);
+        emit Created(wallet, msg.sender, _owner, block.timestamp, _unlockDate, msg.value);
     }
 
     // Prevents accidental sending of ether to the factory
-    fallback () public {}
+    fallback () external {}
 
     event Created(address wallet, address from, address to, uint256 createdAt, uint256 unlockDate, uint256 amount);
 }
