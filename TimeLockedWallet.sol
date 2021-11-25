@@ -17,7 +17,7 @@ contract TimeLockedWallet {
         _;
     }
     
-    constructor(address _creator, address _owner, uint _unlockDate) public {
+    constructor(address _creator, address _owner, uint _unlockDate) {
       creator = _creator;
       owner = payable(_owner);
       unlockDate = _unlockDate;
