@@ -26,7 +26,7 @@ contract TimeLockedWalletFactory {
         // Add wallet to sender's wallets.
         wallets[msg.sender].push(payable(wallet));
 
-        // If owner is the same as sender then add wallet to sender's wallets too.
+        // Allow creator not to be receiver so optionally another team member can receive funds
         if(payable(msg.sender) != _owner){
             wallets[_owner].push(payable(wallet));
         }
