@@ -1,6 +1,3 @@
-// time lock with readable events
-// part 2 will be adding a factory
-
 pragma solidity ^0.8.4;
 
 import "./ERC20.sol";
