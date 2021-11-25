@@ -21,10 +21,10 @@ contract TimeLockedWalletFactory {
     {
         // Create new wallet.
         //wallet = new TimeLockedWallet(msg.sender, _owner, _unlockDate);
-        TimeLockedWallet newTimeLockedWallet = new TimeLockedWallet(msg.sender, _owner, _unlockDate);
+        TimeLockedWallet wallet = new TimeLockedWallet(msg.sender, _owner, _unlockDate);
         
         // Add wallet to sender's wallets.
-        wallets[msg.sender].push(payable(newTimeLockedWallet));
+        wallets[msg.sender].push(payable(wallet));
 
         // If owner is the same as sender then add wallet to sender's wallets too.
         if(msg.sender != _owner){
