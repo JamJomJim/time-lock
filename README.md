@@ -1,4 +1,4 @@
-Two different smart contract options for token locking
+Two different smart contract options for token locking.
 
 
 TimeLockedWalletFactory.sol + TimeLockedWallet.sol
