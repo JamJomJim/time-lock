@@ -9,5 +9,5 @@ Stores the tokens and releases them at a later date to the recipients.
 
 lock.sol
 ========
-Simple time lock for token vesting.
+A seperate simple time locking smart contract. One time use with lock duration set in the constructor.
 Change the date variable to desired length.
