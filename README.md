@@ -1,6 +1,3 @@
-Two different smart contract options for token locking.
-
-
 TimeLockedWalletFactory.sol + TimeLockedWallet.sol
 ==================================================
 Allows creation of re-usable gas efficient time locked wallet vaults.
